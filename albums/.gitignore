@@ -29,6 +29,8 @@ build/
 .gradle
 local.properties
 *.iml
+android/app/src/main/assets/*.bundle
+android/app/src/main/assets/*.bundle.meta
 
 # node.js
 #
