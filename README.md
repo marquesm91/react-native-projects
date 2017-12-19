@@ -2,23 +2,23 @@
 
 Simple projects using React Native
 
-## Best order to follow:
+## Suggested order to follow
 
-* projects with react-native-cli
-  * albums
+* projects with `react-native-cli`
+  1. **albums**
     * Card
     * CardSection
-  * auth (basic with firebase-auth)
+  2. **auth**
     * firebase-auth
     * Input
     * Buttons
-  * tech_stack (LayoutAnimated and ListView)
+  3. **tech_stack**
     * ListView
     * LayoutAnimated
-  * manager (firebase-auth, firebase-database)
+  4. **manager**
     * firebase-auth
     * firebase-database
-    * Navigation (react-native-router-flux)
+    * Navigation
 * projects with [Expo](https://expo.io/)
-  * swipe
+  5. **swipe**
     * More advanced animations (Swipe card)
