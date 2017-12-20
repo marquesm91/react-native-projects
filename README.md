@@ -10,7 +10,7 @@ For the projects using `react-native-cli` I suggest you to follow these steps to
 
 * `npm i -g react-native-cli`
 * Attach one Android device to your computer and guarantee your device is on Development Mode.
-* On one of the app folders create under the cli use `react-native start` to start the Module Bundler.  
+* Inside of any app folders created under the cli, run `react-native start` to start the Module Bundler.
 * `react-native run-android` to build your application to the device.
 * Wait until the Bundler compile everything and see the app in action!
 
