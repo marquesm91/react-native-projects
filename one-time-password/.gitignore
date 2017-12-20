@@ -1,2 +1,4 @@
 functions/serviceAccount.json
 functions/node_modules
+functions/twilio.js
+functions/*.log
