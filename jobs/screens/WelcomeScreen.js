@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { AppLoading } from 'expo';
 
@@ -13,8 +14,6 @@ const SLIDE_DATA = [
 ];
 
 class WelcomeScreen extends Component {
-  state = { token: null }
-  
   componentWillMount() {
     this.props.checkToken();
   }
@@ -34,15 +33,27 @@ class WelcomeScreen extends Component {
   }
 
   render() {
-    if (_.isNull(this.state.token)) {
-      return <AppLoading />;
+    if (_.isNull(this.props.token)) {
+      return (
+        <View style={styles.container}>
+          <AppLoading />
+        </View>
+      );
     }
 
     return (
-      <Slides data={SLIDE_DATA} onComplete={this.onSlidesComplete} />
+      <View style={styles.container}>
+        <Slides data={SLIDE_DATA} onComplete={this.onSlidesComplete} />
+      </View>
     );
   }
 }
+
+const styles = {
+  container: {
+    flex: 1
+  }
+};
 
 const mapStateToProps = ({ auth }) => {
   const { token } = auth;

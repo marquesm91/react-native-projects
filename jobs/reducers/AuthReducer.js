@@ -4,15 +4,16 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-  token: false
+  token: null
 };
 
 export default function (state = INITIAL_STATE, action) {
+  console.log(action);
   switch (action.type) {
     case FACEBOOK_LOGIN_SUCCESS:
-      return { token: action.payload };
+      return { ...state, token: action.payload };
     case FACEBOOK_LOGIN_FAIL:
-      return { token: null };
+      return { ...state, token: false };
     default:
       return state;
   }
