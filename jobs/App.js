@@ -30,7 +30,11 @@ class App extends Component {
           tabBarPosition: 'bottom',
           animationEnabled: true,
           tabBarOptions: {
-            activeTintColor: '#e91e63',
+            activeTintColor: '#007AFF',
+            inactiveTintColor: '#fff',
+            tabStyle: {
+              backgroundColor: '#fefefe',
+            },
           },
         })
       }
@@ -38,12 +42,7 @@ class App extends Component {
       navigationOptions: {
         tabBarVisible: false
       },
-      //lazy: true,
-      tabBarPosition: 'bottom',
-      animationEnabled: true,
-      tabBarOptions: {
-        activeTintColor: '#e91e63',
-      }
+      lazy: true
     });
 
     return (
