@@ -1,10 +1,8 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
-import { View } from 'react-native';
-import { connect } from 'react-redux';
+import { AsyncStorage } from 'react-native';
 import { AppLoading } from 'expo';
 
-import * as actions from '../actions';
 import Slides from '../components/Slides';
 
 const SLIDE_DATA = [
@@ -14,51 +12,34 @@ const SLIDE_DATA = [
 ];
 
 class WelcomeScreen extends Component {
-  componentWillMount() {
-    this.props.checkToken();
-  }
+  state = { token: null };
 
-  componentWillReceiveProps(nextProps) {
-    this.redirectToMap(nextProps);
+  async componentWillMount() {
+    //let token = await AsyncStorage.getItem('fb_token');
+
+    //if (token) {
+    //  this.setState({ token });
+      this.props.navigation.navigate('map');
+    //} else {
+    //  this.setState({ token: false });
+    //}
   }
 
   onSlidesComplete = () => {
     this.props.navigation.navigate('auth');
   }
 
-  redirectToMap({ token }) {
-    if (token) {
-      this.props.navigation.navigate('map');
-    }
-  }
-
   render() {
-    if (_.isNull(this.props.token)) {
+    /*if (_.isNull(this.state.token)) {
       return (
-        <View style={styles.container}>
-          <AppLoading />
-        </View>
+        <AppLoading />
       );
-    }
+    }*/
 
     return (
-      <View style={styles.container}>
-        <Slides data={SLIDE_DATA} onComplete={this.onSlidesComplete} />
-      </View>
+      <Slides data={SLIDE_DATA} onComplete={this.onSlidesComplete} />
     );
   }
 }
 
-const styles = {
-  container: {
-    flex: 1
-  }
-};
-
-const mapStateToProps = ({ auth }) => {
-  const { token } = auth;
-
-  return { token };
-};
-
-export default connect(mapStateToProps, actions)(WelcomeScreen);
+export default WelcomeScreen;

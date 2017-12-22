@@ -38,12 +38,12 @@ class App extends Component {
       navigationOptions: {
         tabBarVisible: false
       },
-      lazy: true,
+      //lazy: true,
       tabBarPosition: 'bottom',
       animationEnabled: true,
       tabBarOptions: {
         activeTintColor: '#e91e63',
-      },
+      }
     });
 
     return (

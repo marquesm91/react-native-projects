@@ -4,31 +4,30 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 class AuthScreen extends Component {
-  componentDidMount() {
-    this.props.facebookLogin();
-    //this.onAuthComplete(this.props);
+  /*async componentDidMount() {
+    await this.props.facebookLogin();
+    this.onAuthComplete(this.props);
+    //console.log(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
-    // On Success FB login
     this.onAuthComplete(nextProps);
+    //console.log(nextProps);
   }
 
-  onAuthComplete(props) {
-    if (props.token) {
+  onAuthComplete({ token }) {
+    if (token) {
       this.props.navigation.navigate('map');
     }
-  }
+  }*/
 
   render() {
     return (
       <View>
-        <Text>AuthScreen</Text>
-        <Text>AuthScreen</Text>
-        <Text>AuthScreen</Text>
-        <Text>AuthScreen</Text>
-        <Text>AuthScreen</Text>
-        <Text>AuthScreen</Text>
+        <Text>Auth</Text>
+        <Text>Auth</Text>
+        <Text>Auth</Text>
+        <Text>Auth</Text>
       </View>
     );
   }
