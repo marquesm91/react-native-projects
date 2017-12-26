@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/matheus/work/react-native-projects/awesome-places/android/C:\\Users\\matheus.marques\\Desktop\\work\\react-native-projects\\awesome-places\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\ic_launcher.png",
+        "source": "/home/matheus/work/react-native-projects/awesome-places/android/C:\\Users\\matheus.marques\\Desktop\\work\\react-native-projects\\awesome-places\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "/home/matheus/work/react-native-projects/awesome-places/android/app/build/intermediates/res/merged/debug/mipmap-hdpi/ic_launcher.png",
+        "source": "/home/matheus/work/react-native-projects/awesome-places/android/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    }
+]
