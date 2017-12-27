@@ -16,9 +16,9 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         places: [
-          ...state.places, { 
+          ...state.places, {
             key: Math.random(),
-            name: action.palceName,
+            name: action.placeName,
             image: {
               uri: 'http://images1.aystatic.com/articles/106/49054_home_hero.jpg?1429245631'
             }
