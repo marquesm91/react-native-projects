@@ -12,21 +12,9 @@ export const addPlace = placeName => {
   };
 };
 
-export const deletePlace = () => {
+export const deletePlace = key => {
   return {
-    type: DELETE_PLACE
-  };
-};
-
-export const selectPlace = key => {
-  return {
-    type: SELECT_PLACE,
+    type: DELETE_PLACE,
     placeKey: key
-  };
-};
-
-export const deselectPlace = () => {
-  return {
-    type: DESELECT_PLACE
   };
 };
