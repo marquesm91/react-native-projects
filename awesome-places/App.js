@@ -9,7 +9,7 @@ import { addPlace, deletePlace, selectPlace, deselectPlace } from './src/store/a
 
 class App extends Component {
   placeAddedHandler = placeName => {
-    this.props.onAddPlace(placeName)
+    this.props.onAddPlace(placeName);
   };
 
   placeDeletedHandler = () => {
