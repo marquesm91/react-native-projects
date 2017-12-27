@@ -1,49 +1,8 @@
-<<<<<<< HEAD
-import React from 'react';
-import { StyleSheet, View, TextInput, Button } from 'react-native';
-
-const placeInput = (props) => (
-  <View style={styles.inputContainer}>
-    <TextInput 
-      style={styles.placeInput}
-      placeholder={'An awesome place!'}
-      value={props.placeName}
-      onChangeText={props.placeNameChangedHandler}
-    />
-    <Button
-      style={styles.placeButton}
-      title={'Add'}
-      onPress={props.placeSubmitHandler}
-    />  
-  </View>
-);
-
-const styles = StyleSheet.create({
-  inputContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginTop: 15
-  },
-  placeInput: {
-    width: '70%',
-  },
-  placeButton: {
-    width: '30%'
-  }
-});
-
-export default placeInput;
-=======
 import React, { Component } from 'react';
 import { StyleSheet, View, TextInput, Button } from 'react-native';
 
 class PlaceInput extends Component {
   state = { placeName: '' };
-
-  componentDidMount() {
-
-  }
 
   placeNameChangedHandler = value => {
     this.setState({ placeName: value })
@@ -60,7 +19,7 @@ class PlaceInput extends Component {
   render() {
     return (
       <View style={styles.inputContainer}>
-        <TextInput 
+        <TextInput
           style={styles.placeInput}
           placeholder={'An awesome place'}
           value={this.state.placeName}
@@ -70,7 +29,7 @@ class PlaceInput extends Component {
           style={styles.placeButton}
           title={'Add'}
           onPress={this.placeSubmitHandler}
-        />  
+        />
       </View>
     );
   }
@@ -92,4 +51,3 @@ const styles = StyleSheet.create({
 });
 
 export default PlaceInput;
->>>>>>> a2d90e05fe3ff12facf1400c229170756e9adec9

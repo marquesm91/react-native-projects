@@ -18,12 +18,8 @@
   },
   "dependencies": {
     "react": "16.0.0",
-<<<<<<< HEAD
-    "react-native": "0.50.3"
-=======
     "react-native": "0.50.3",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2"
->>>>>>> a2d90e05fe3ff12facf1400c229170756e9adec9
   }
 }

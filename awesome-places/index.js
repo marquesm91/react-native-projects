@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import { AppRegistry } from 'react-native';
-import App from './App';
-AppRegistry.registerComponent('myfirstapp', () => App);
-=======
 import React from 'react';
 import { AppRegistry } from 'react-native';
 import { Provider } from 'react-redux';
@@ -18,4 +13,3 @@ const ReactNativeRedux = () => (
 );
 
 AppRegistry.registerComponent('myfirstapp', () => ReactNativeRedux);
->>>>>>> a2d90e05fe3ff12facf1400c229170756e9adec9
