@@ -11,10 +11,10 @@ const placeList = (props) => {
         <ListItem
           placeName={info.item.name}
           placeImage={info.item.image}
-          onItemPressed={() => props.onItemDeleted(info.item.id)}
+          onItemPressed={() => props.onItemSelected(info.item.key)}
         />
       )}
-      keyExtractor={item => item.id}
+      keyExtractor={item => item.key}
     />
   );
 }
