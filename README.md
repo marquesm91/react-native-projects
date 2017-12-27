@@ -1,8 +1,9 @@
 # React Native Projects
 
-Simple projects using React Native based on two courses from [Udemy](https://www.udemy.com/) taught by [Stephen Grider](https://www.udemy.com/user/sgslo/).
-* [The Complete React Native and Redux Course](https://www.udemy.com/the-complete-react-native-and-redux-course/learn/v4/overview)
-* [React Native: Advanced Concepts](https://www.udemy.com/react-native-advanced/learn/v4/content)
+Simple projects using React Native based on many courses from [Udemy](https://www.udemy.com/)
+* [The Complete React Native and Redux Course](https://www.udemy.com/the-complete-react-native-and-redux-course/)
+* [React Native: Advanced Concepts](https://www.udemy.com/react-native-advanced/)
+* [React Native the practical guide](https://www.udemy.com/react-native-the-practical-guide/)
 
 ## Test yourself
 
@@ -15,6 +16,8 @@ For the projects using `react-native-cli` I suggest you to follow these steps to
 * Wait until the Bundler compile everything and see the app in action!
 
 For the projects using [Expo](https://expo.io/) you can download Expo XDE and the Expo App (available at Play store or Apple store), open the project created under it and use the QR code on Share button to see the app in your device Android or iOS!
+
+For the projects using `create-react-native-app` you can follow the instructions on [docs](https://facebook.github.io/react-native/blog/2017/03/13/introducing-create-react-native-app.html). You can simply run `npm install` and use the same commands of `react-native-cli`.
 
 ## Suggested order to follow
 
@@ -36,3 +39,10 @@ For the projects using [Expo](https://expo.io/) you can download Expo XDE and th
 * projects with [Expo](https://expo.io/)
   1. **swipe**
       * More advanced animations (Swipe card)
+  2. **one-time-password**
+      * Use of Google Cloud Functions and Twilio SMS services
+  3. **jobs**
+      * Use of Redux, Maps, Navigation
+* projects with `create-react-native-app`
+  1. **awesome-places**
+      * Modal
