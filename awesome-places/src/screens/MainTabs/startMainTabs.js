@@ -47,7 +47,7 @@ const startTabs = () => {
       drawer: {
         left: {
           screen: 'awesome-places.SideDrawer',
-          fixedWidth
+          fixedWidth: fixedWidth
           //percentOfScreenWidth: 0.8,
           //disableOpenGesture: false // Disable swipe to left
         }

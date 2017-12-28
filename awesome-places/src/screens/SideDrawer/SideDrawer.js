@@ -9,18 +9,10 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const wDim = Dimensions.get('window');
-const fixedWidth = Math.round(wDim.width * wDim.scale * 0.8);
-
 class SideDrawer extends Component {
   render() {
     return (
-      <View
-        style={[
-          styles.container,
-          { width: fixedWidth }
-        ]}
-      >
+      <View style={styles.container}>
         <TouchableOpacity>
           <View style={styles.drawerItem}>
             <Icon
