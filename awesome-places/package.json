@@ -11,6 +11,7 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
+    "clean": "rm -rf android/build && rm -rf android/app/build",
     "test": "node node_modules/jest/bin/jest.js --watch"
   },
   "jest": {
