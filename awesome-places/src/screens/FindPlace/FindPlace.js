@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
-  TouchableOpacity,
+  TouchableWithoutFeedback,
   StyleSheet,
   Animated
 } from 'react-native';
@@ -17,7 +17,8 @@ class FindPlace extends Component {
 
   state = {
     placesLoaded: false,
-    removeAnim: new Animated.Value(1)
+    scaleInAndOutAnim: new Animated.Value(1),
+    fadeInAnim: new Animated.Value(0)
   }
 
   constructor(props) {
@@ -37,12 +38,23 @@ class FindPlace extends Component {
     }
   }
 
-  placesSearchHandler = () => {
-    Animated.timing(this.state.removeAnim, {
-      toValue: 0,
+  placesLoadedHandler = () => {
+    Animated.timing(this.state.fadeInAnim, {
+      toValue: 1,
       duration: 500, // milliseconds
       useNativeDriver: true
     }).start();
+  }
+
+  placesSearchHandler = () => {
+    Animated.timing(this.state.scaleInAndOutAnim, {
+      toValue: 0,
+      duration: 250, // milliseconds
+      useNativeDriver: true
+    }).start(() => {
+      this.setState({ placesLoaded: true });
+      this.placesLoadedHandler();
+    });
   }
 
   itemSelectedHandler = key => {
@@ -59,31 +71,36 @@ class FindPlace extends Component {
     let content = (
       <Animated.View
         style={{
-          opacity: this.state.removeAnim,
           transform: [
             {
-              scale: this.state.removeAnim.interpolate({
-                inputRange: [0, 1],
-                outputRange: [12, 1]
+              scale: this.state.scaleInAndOutAnim.interpolate({
+                inputRange: [0, 0.5, 1],
+                outputRange: [0, 1.3, 1]
               })
             }
           ]
         }}
       >
-        <TouchableOpacity onPress={this.placesSearchHandler}>
+        <TouchableWithoutFeedback onPress={this.placesSearchHandler}>
           <View style={styles.searchButton}>
             <Text style={styles.searchButtonText}>Find Places</Text>
           </View>
-        </TouchableOpacity>
+        </TouchableWithoutFeedback>
       </Animated.View>
     );
 
     if (this.state.placesLoaded) {
       content = (
-        <PlaceList
-          places={this.props.places}
-          onItemSelected={this.itemSelectedHandler}
-        />
+        <Animated.View
+          style={{
+            opacity: this.state.fadeInAnim,
+          }}
+        >
+          <PlaceList
+            places={this.props.places}
+            onItemSelected={this.itemSelectedHandler}
+          />
+        </Animated.View>
       );
     }
 
