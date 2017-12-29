@@ -16,10 +16,34 @@ import MainText from '../../components/UI/MainText/MainText';
 import ButtonWithBackground from '../../components/UI/ButtonWithBackground/ButtonWithBackground';
 
 import backgroundImage from '../../assets/background.jpg';
+import validate from '../../utility/validation';
 
 class AuthScreen extends Component {
   state = {
-    viewMode: Dimensions.get('window').height > 500 ? 'portrait' : 'landscape'
+    viewMode: Dimensions.get('window').height > 500 ? 'portrait' : 'landscape',
+    controls: {
+      email: {
+        value: '',
+        valid: false,
+        validationRules: {
+          isEmail: true
+        }
+      },
+      password: {
+        value: '',
+        valid: false,
+        validationRules: {
+          minLength: 6
+        }
+      },
+      confirmPassword: {
+        value: '',
+        valid: false,
+        validationRules: {
+          equalTo: 'password'
+        }
+      }
+    }
   };
 
   constructor(props) {
@@ -42,6 +66,53 @@ class AuthScreen extends Component {
     startMainTabs();
   }
 
+  updateInputState = (value, key) => {
+    let connectedValue = {};
+
+    if (this.state.controls[key].validationRules.equalTo) {
+      const equalControl = this.state.controls[key].validationRules.equalTo;
+      const equalValue = this.state.controls[equalControl].value;
+      connectedValue = {
+        ...connectedValue,
+        equalTo: equalValue
+      };
+    }
+
+    if (key === 'password') {
+      connectedValue = {
+        ...connectedValue,
+        equalTo: value
+      };
+    }
+
+    this.setState(prevState => {
+      return {
+        controls: {
+          ...prevState.controls,
+          confirmPassword: {
+            ...prevState.controls.confirmPassword,
+            valid: key === 'password'
+              ? validate(
+                  prevState.controls.confirmPassword.value,
+                  prevState.controls.confirmPassword.validationRules,
+                  connectedValue
+                )
+              : prevState.controls.confirmPassword.valid
+          },
+          [key]: {
+            ...prevState.controls[key],
+            value,
+            valid: validate(
+              value,
+              prevState.controls[key].validationRules,
+              connectedValue
+            )
+          }
+        }
+      };
+    });
+  }
+
   render() {
     let headingText = null;
 
@@ -62,7 +133,12 @@ class AuthScreen extends Component {
           {headingText}
           <ButtonWithBackground color='#29aaf4' onPress={() => alert('Hello')}>Switch to Login</ButtonWithBackground>
           <View style={styles.inputContainer}>
-            <DefaultInput placeholder="Your e-mail address" style={styles.input} />
+            <DefaultInput
+              placeholder="Your e-mail address"
+              style={styles.input}
+              value={this.state.controls.email.value}
+              onChangeText={value => this.updateInputState(value, 'email')}
+            />
             <View
               style={
                 this.state.viewMode === 'portrait'
@@ -80,6 +156,8 @@ class AuthScreen extends Component {
                 <DefaultInput
                   placeholder="Password"
                   style={styles.input}
+                  value={this.state.controls.password.value}
+                  onChangeText={value => this.updateInputState(value, 'password')}
                 />
               </View>
               <View
@@ -92,6 +170,8 @@ class AuthScreen extends Component {
                 <DefaultInput
                   placeholder="Confirm password"
                   style={styles.input}
+                  value={this.state.controls.confirmPassword.value}
+                  onChangeText={value => this.updateInputState(value, 'confirmPassword')}
                 />
               </View>
             </View>
