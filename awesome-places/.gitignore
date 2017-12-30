@@ -22,3 +22,4 @@ android/.gradle/*
 
 functions/gcconfig.js
 functions/awesome-places.json
+functions/node_modules
