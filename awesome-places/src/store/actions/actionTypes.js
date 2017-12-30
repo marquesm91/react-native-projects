@@ -1,5 +1,5 @@
-export const ADD_PLACE = 'add_place';
-export const DELETE_PLACE = 'delete_place';
+export const SET_PLACES = 'set_places';
+export const DELETE_PLACE_LOCAL = 'delete_place_local';
 
 export const TRY_AUTH = 'try_auth';
 

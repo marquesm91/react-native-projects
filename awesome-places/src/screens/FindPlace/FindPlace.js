@@ -9,7 +9,7 @@ import {
 import { connect } from 'react-redux';
 
 import PlaceList from '../../components/PlaceList/PlaceList';
-
+import { getPlaces } from '../../store/actions';
 class FindPlace extends Component {
   static navigatorStyle = {
     navBarButtonColor: 'orange'
@@ -25,6 +25,10 @@ class FindPlace extends Component {
     super(props);
 
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
+  }
+
+  componentDidMount() {
+    this.props.onLoadPlaces();
   }
 
   onNavigatorEvent = event => {
@@ -137,4 +141,10 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(FindPlace);
+const mapDispatchToProps = dispatch => {
+  return {
+    onLoadPlaces: () => dispatch(getPlaces())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FindPlace);
