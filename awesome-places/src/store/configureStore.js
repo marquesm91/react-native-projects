@@ -6,10 +6,11 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 
-import placesReducer from './reducers/Places';
-
+import PlacesReducer from './reducers/Places';
+import UIReducer from './reducers/UI';
 const rootReducer = combineReducers({
-  places: placesReducer
+  places: PlacesReducer,
+  ui: UIReducer
 });
 
 let composeEnhancers = compose;
