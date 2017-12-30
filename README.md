@@ -3,7 +3,23 @@
 Simple projects using React Native based on many courses from [Udemy](https://www.udemy.com/)
 * [The Complete React Native and Redux Course](https://www.udemy.com/the-complete-react-native-and-redux-course/)
 * [React Native: Advanced Concepts](https://www.udemy.com/react-native-advanced/)
-* [React Native the practical guide](https://www.udemy.com/react-native-the-practical-guide/)
+* [React Native: The Practical guide](https://www.udemy.com/react-native-the-practical-guide/)
+
+## Important to note
+
+All the projects was only tested in Android environment, expect the Expo projects which was tested on both Android and iOS.
+
+|      Project      | iOS Tested & Config | Android Tested & Config |
+|:-----------------:|:-------------------:|:-----------------------:|
+| albums            |                     |    :white_check_mark:   |
+| auth              |                     |    :white_check_mark:   |
+| awesome-places    |                     |    :white_check_mark:   |
+| firebase-auth     |                     |    :white_check_mark:   |
+| jobs              |  :white_check_mark: |    :white_check_mark:   |
+| manager           |                     |    :white_check_mark:   |
+| one-time-password |  :white_check_mark: |    :white_check_mark:   |
+| swipe             |  :white_check_mark: |    :white_check_mark:   |
+| tech_stack        |                     |    :white_check_mark:   |
 
 ## Test yourself
 
@@ -39,8 +55,8 @@ For the projects using `create-react-native-app` you can follow the instructions
 * projects with [Expo](https://expo.io/)
   1. **swipe**
       * More advanced animations (Swipe card)
-  2. **one-time-password**
-      * Use of Google Cloud Functions and Twilio SMS services
+  2. **firebase-auth** and **one-time-password**
+      * Use of Google Cloud Functions and Twilio SMS services to simulate and authentication with SMS
   3. **jobs**
       * Use of Redux, Maps, Navigation
 * projects with `create-react-native-app`
