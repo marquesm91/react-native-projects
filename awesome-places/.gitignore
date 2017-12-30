@@ -19,3 +19,6 @@ yarn-error.log*
 android/build/*
 android/app/build/*
 android/.gradle/*
+
+functions/gcconfig.js
+functions/awesome-places.json
