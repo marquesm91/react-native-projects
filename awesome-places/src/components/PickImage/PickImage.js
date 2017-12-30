@@ -1,16 +1,36 @@
 import React, { Component } from 'react';
 import { View, Image, Button, StyleSheet } from 'react-native';
-import imagePlaceholder from '../../assets/beautiful-place.jpg';
+import ImagePicker from 'react-native-image-picker';
 
 class PickImage extends Component {
+  state = { pickedImaged: null }
+
+  pickImageHandler = () => {
+    ImagePicker.showImagePicker({ title: 'Pick an Image' }, res => {
+      if (res.didCancel) {
+        console.log('User cancelled!');
+      } else if (res.error) {
+        console.log('Error: ', res.error);
+      } else {
+        this.setState({
+          pickedImaged: { uri: res.uri }
+        });
+        this.props.onImagePicked({
+          uri: res.uri, // location uri
+          base64: res.data // code to be transfered to server
+        });
+      }
+    });
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.placeholder}>
-          <Image source={imagePlaceholder} style={styles.previewImage} />
+          <Image source={this.state.pickedImaged} style={styles.previewImage} />
         </View>
         <View style={styles.button}>
-          <Button title='Pick me' onPress={() => alert('Pick Image')} />
+          <Button title='Pick me' onPress={this.pickImageHandler} />
         </View>
       </View>
     );
@@ -25,7 +45,7 @@ const styles = StyleSheet.create({
   placeholder: {
     borderWidth: 1,
     borderColor: 'black',
-    backgroundColor: '#eee',
+    //backgroundColor: '#eee',
     width: '80%',
     height: 150
   },
