@@ -11,11 +11,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         isLoading: true
       }
-    case UI_START_LOADING:
-    return {
-      ...state,
-      isLoading: false
-    }
+    case UI_STOP_LOADING:
+      return {
+        ...state,
+        isLoading: false
+      }
     default:
       return state;
   }
