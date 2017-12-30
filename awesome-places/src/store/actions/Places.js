@@ -6,11 +6,21 @@ import {
 } from './actionTypes';
 
 export const addPlace = (placeName, location, image) => {
-  return {
-    type: ADD_PLACE,
-    placeName: placeName,
-    location: location,
-    image: image
+  return dispatch => {
+    const placeData = {
+      name: placeName,
+      location: location
+    };
+
+    fetch('https://awesome-places-1514600820487.firebaseio.com/places.json', {
+      method: 'POST',
+      body: JSON.stringify(placeData)
+    })
+    .catch(err => console.log(err))
+    .then(res => res.json())
+    .then(parsedRes => {
+      console.log(parsedRes);
+    });
   };
 };
 
