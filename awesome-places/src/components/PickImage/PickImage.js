@@ -3,7 +3,15 @@ import { View, Image, Button, StyleSheet } from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 
 class PickImage extends Component {
-  state = { pickedImaged: null }
+  componentWillMount() {
+    this.reset();
+  }
+
+  reset = () => {
+    this.setState({
+      pickedImage: null
+    });
+  }
 
   pickImageHandler = () => {
     ImagePicker.showImagePicker({
@@ -17,7 +25,7 @@ class PickImage extends Component {
         console.log('Error: ', res.error);
       } else {
         this.setState({
-          pickedImaged: { uri: res.uri }
+          pickedImage: { uri: res.uri }
         });
         this.props.onImagePicked({
           uri: res.uri, // location uri
@@ -31,7 +39,7 @@ class PickImage extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.placeholder}>
-          <Image source={this.state.pickedImaged} style={styles.previewImage} />
+          <Image source={this.state.pickedImage} style={styles.previewImage} />
         </View>
         <View style={styles.button}>
           <Button title='Pick me' onPress={this.pickImageHandler} />
