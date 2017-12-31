@@ -77,7 +77,8 @@ exports.storeImage = functions.https.onRequest((request, response) => {
                 '/o/' +
                 encodeURIComponent(file.name) +
                 '?alt=media&token=' +
-                uuid
+                uuid,
+              imagePath: '/places/' + uuid + '.jpg'
             });
           } else {
             console.log(err);
