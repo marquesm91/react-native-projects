@@ -92,3 +92,14 @@ exports.storeImage = functions.https.onRequest((request, response) => {
       });
   });
 });
+
+exports.deleteImage = functions.database
+  .ref('/places/{placesId}')
+  .onDelete(event => {
+    const placeData = event.data.previous.val();
+    const imagePath = placeData.imagePath;
+
+    const bucket = gcs.bucket('awesome-places-1514600820487.appspot.com');
+
+    return bucket.file(imagePath).delete();
+  });
