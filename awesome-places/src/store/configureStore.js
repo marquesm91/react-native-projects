@@ -8,9 +8,12 @@ import thunk from 'redux-thunk';
 
 import PlacesReducer from './reducers/Places';
 import UIReducer from './reducers/UI';
+import AuthReducer from './reducers/Auth';
+
 const rootReducer = combineReducers({
   places: PlacesReducer,
-  ui: UIReducer
+  ui: UIReducer,
+  auth: AuthReducer
 });
 
 let composeEnhancers = compose;
