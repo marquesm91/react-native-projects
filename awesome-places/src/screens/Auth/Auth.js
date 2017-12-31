@@ -20,7 +20,7 @@ import MainText from '../../components/UI/MainText/MainText';
 import ButtonWithBackground from '../../components/UI/ButtonWithBackground/ButtonWithBackground';
 import backgroundImage from '../../assets/background.jpg';
 import validate from '../../utility/validation';
-import { tryAuth } from '../../store/actions/Auth';
+import { tryAuth, authAutoSignIn } from '../../store/actions/Auth';
 
 class AuthScreen extends Component {
   state = {
@@ -64,10 +64,9 @@ class AuthScreen extends Component {
     Dimensions.removeEventListener('change', this.updateStyles);
   }
 
-  // Remove this when need to test Auth Screen
-  /*componentDidMount() {
-    startMainTabs();
-  }*/
+  componentDidMount() {
+    this.props.onAutoSignIn();
+  }
 
   switchAuthModeHandler = () => {
     this.setState({
@@ -87,7 +86,7 @@ class AuthScreen extends Component {
       email: this.state.controls.email.value,
       password: this.state.controls.password.value
     };
-    
+
     this.props.onTryAuth(authData, this.state.authMode);
   }
 
@@ -291,7 +290,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onTryAuth: (authData, authMode) => dispatch(tryAuth(authData, authMode))
+    onTryAuth: (authData, authMode) => dispatch(tryAuth(authData, authMode)),
+    onAutoSignIn: () => dispatch(authAutoSignIn())
   };
 };
 
